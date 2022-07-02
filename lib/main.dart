@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Page1(),
     );
   }
@@ -29,7 +30,7 @@ class Page1 extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/imagens/background.jpg'),
-            fit: BoxFit.fitHeight
+            fit: BoxFit.fitWidth
           ),
         ),
         child: Center(
@@ -40,8 +41,14 @@ class Page1 extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(_createRoute());
                 },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(200, 50)
+                ),
                 child: const Text('Entrar'),
               ),
+              const SizedBox(
+                height: 80,
+              )
             ],
           ),
         ),
